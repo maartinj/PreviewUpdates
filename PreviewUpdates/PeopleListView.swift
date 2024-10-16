@@ -17,7 +17,6 @@ import SwiftData
 
 struct PeopleListView: View {
     @Query(sort: \Person.lastName) private var people: [Person]
-//    @State private var people = Person.people
     var body: some View {
             NavigationStack{
                 List(people) { person in
@@ -37,6 +36,6 @@ struct PeopleListView: View {
     }
 }
 
-#Preview {
+#Preview(traits: .mockData) {
     PeopleListView()
 }

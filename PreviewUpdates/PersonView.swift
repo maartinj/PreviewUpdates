@@ -13,6 +13,7 @@
 // Copyright © 2024 CreaTECH Solutions. All rights reserved.
 
 import SwiftUI
+import SwiftData
 
 struct PersonView: View {
     @Bindable var person: Person
@@ -30,7 +31,7 @@ struct PersonView: View {
 // 1st method
 //#Preview(traits: .modifier(NavEmbedded())) {
 // 2nd method
-//#Preview(traits: .navEmbedded) {
-//    @Previewable @State var person = Person.people[0]
-//    PersonView(person: $person)
-//}
+#Preview(traits: .navEmbedded, .mockData) {
+    @Previewable @Query(sort: \Person.lastName) var people: [Person]
+    PersonView(person: people[0])
+}
