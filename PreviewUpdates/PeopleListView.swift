@@ -13,14 +13,16 @@
 // Copyright © 2024 CreaTECH Solutions. All rights reserved.
 
 import SwiftUI
+import SwiftData
 
 struct PeopleListView: View {
-    @State private var people = Person.people
+    @Query(sort: \Person.lastName) private var people: [Person]
+//    @State private var people = Person.people
     var body: some View {
             NavigationStack{
-                List($people) { $person in
+                List(people) { person in
                     NavigationLink {
-                        PersonView(person: $person)
+                        PersonView(person: person)
                     } label: {
                         HStack {
                             Text(person.firstName)

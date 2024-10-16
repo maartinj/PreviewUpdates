@@ -15,7 +15,7 @@
 import SwiftUI
 
 struct PersonView: View {
-    @Binding var person: Person
+    @Bindable var person: Person
     var body: some View {
         Form {
             TextField("First name", text: $person.firstName)
@@ -30,7 +30,7 @@ struct PersonView: View {
 // 1st method
 //#Preview(traits: .modifier(NavEmbedded())) {
 // 2nd method
-#Preview(traits: .navEmbedded) {
-    @Previewable @State var person = Person.people[0]
-    PersonView(person: $person)
-}
+//#Preview(traits: .navEmbedded) {
+//    @Previewable @State var person = Person.people[0]
+//    PersonView(person: $person)
+//}
