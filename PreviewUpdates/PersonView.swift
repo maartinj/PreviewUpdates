@@ -27,6 +27,9 @@ struct PersonView: View {
     }
 }
 
-#Preview {
+// 1st method
+//#Preview(traits: .modifier(NavEmbedded())) {
+// 2nd method
+#Preview(traits: .navEmbedded) {
     PersonView(person: Person.people[0])
 }
