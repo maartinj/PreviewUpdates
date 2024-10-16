@@ -15,11 +15,11 @@
 import SwiftUI
 
 struct PersonView: View {
-    let person: Person
+    @Binding var person: Person
     var body: some View {
-        VStack {
-            Text(person.firstName)
-            Text(person.lastName)
+        Form {
+            TextField("First name", text: $person.firstName)
+            TextField("Last name", text: $person.lastName)
         }
         .font(.title)
             .navigationTitle("\(person.firstName) \(person.lastName)")
@@ -31,5 +31,6 @@ struct PersonView: View {
 //#Preview(traits: .modifier(NavEmbedded())) {
 // 2nd method
 #Preview(traits: .navEmbedded) {
-    PersonView(person: Person.people[0])
+    @Previewable @State var person = Person.people[0]
+    PersonView(person: $person)
 }

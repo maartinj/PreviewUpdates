@@ -18,9 +18,9 @@ struct PeopleListView: View {
     @State private var people = Person.people
     var body: some View {
             NavigationStack{
-                List(people) { person in
+                List($people) { $person in
                     NavigationLink {
-                        PersonView(person: person)
+                        PersonView(person: $person)
                     } label: {
                         HStack {
                             Text(person.firstName)
